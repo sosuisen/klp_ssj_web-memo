@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="com.example.Memo" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,12 +13,12 @@
 		<input type="text" name="memo">
 		<input type="submit" value="保存">
 	</form>
-	<h2>過去のメモ</h2>
+	<h2>メモ一覧</h2>
 	<%
-	var memoList = (ArrayList<com.example.Memo>) session.getAttribute("memoList");
-	for (var memo : memoList) {
+	var textList = (List<String>) request.getAttribute("textList");
+	for (var text : textList) {
 	%>
-	<p><%= memo.getText() %></p>
+	<p><%= text %></p>
 	<%
 	}
 	%>
